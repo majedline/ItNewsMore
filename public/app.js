@@ -10,10 +10,6 @@ function getArticles() {
       if (i === 0) {
         $("#articles").empty();
       }
-      // Display the apropos information on the page
-      // $("#articles").append("<p data-id='" + data[i]._id + "'>"
-      //   + data[i].title + "<br />"
-      //   + data[i].link + "</p>");
 
       buildArticle(data[i]._id, data[i].title, data[i].link);
     }
@@ -23,11 +19,10 @@ function getArticles() {
 function buildArticle(id, title, link, image) {
   $("#articles").append("<p data-id='" + id + "'>"
     + "" + title + " "
-    + "<a href='" + link + "'>[visit site]" + ""
+    +" <button type='button' data-id='" + id + " class='btn btn-primary'> Open existing Note </button>"
+    + " <a href='" + link + "'>[visit site]" + ""
     + "</p>");
 }
-
-
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function () {

@@ -36,12 +36,10 @@ app.get("/scrape", function (req, res) {
 
   let count = 0;
 
-  // First, we grab the body of the html with axios
+  //Scrape blogTO
   const url = "https://www.blogto.com";
   axios.get(url).then(function (response) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
-    // Now, we grab every h2 within an article tag, and do the following:
     $('div .article-thumbnail').each(function (i, element) {
       count++;
       let result = {};
